@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.markwebert.javafxapp.UIController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="closeButton" alignment="CENTER" mnemonicParsing="false" onAction="#closeButtonEvent" text="Close App" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="488.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="66.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <Rectangle fx:id="frontLeftWheel" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="54.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="24.0">
+               <fill>
+                  <LinearGradient endX="0.5071090047393365" endY="1.0" startX="0.5071090047393365">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="1.0" blue="0.03529411926865578" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle fx:id="frontRightWheel" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="254.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="24.0">
+               <fill>
+                  <LinearGradient endX="0.5071090047393365" endY="1.0" startX="0.5071090047393365">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="1.0" blue="0.03529411926865578" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle fx:id="rearLeftWheel" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="54.0" layoutY="222.0" stroke="BLACK" strokeType="INSIDE" width="24.0">
+               <fill>
+                  <LinearGradient endX="0.5071090047393365" endY="1.0" startX="0.5071090047393365">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="1.0" blue="0.03529411926865578" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+            <Rectangle fx:id="rearRightWheel" arcHeight="5.0" arcWidth="5.0" height="57.0" layoutX="254.0" layoutY="222.0" stroke="BLACK" strokeType="INSIDE" width="24.0">
+               <fill>
+                  <LinearGradient endX="0.5071090047393365" endY="1.0" startX="0.5071090047393365">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06913580000400543" green="1.0" blue="0.03703703731298447" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Rectangle>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox alignment="CENTER_LEFT" prefHeight="300.0" prefWidth="157.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <children>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LF Slew Angle:" />
+                  <Text fx:id="lfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LF Velocity:" />
+                  <Text fx:id="lfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LR Slew Angle:" />
+                  <Text fx:id="lrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LR Velocity:" />
+                  <Text fx:id="lrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER_RIGHT" prefHeight="300.0" prefWidth="175.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <children>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Slew Angle:" />
+                  <Text fx:id="rfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Velocity:" />
+                  <Text fx:id="rfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RR Slew Angle:" />
+                  <Text fx:id="rrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RR Velocity:" />
+                  <Text fx:id="rrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick X:" />
+                        <Text fx:id="leftXText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Y:" />
+                        <Text fx:id="leftYText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Right Stick X:" />
+                        <Text fx:id="rightXText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="80.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER">
+               <children>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Angle:" />
+                        <Text fx:id="leftAngleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Velocity:" />
+                        <Text fx:id="leftVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
