@@ -157,25 +157,4 @@ public class UIController {
 		});
 	}
 
-	public static double Normalize_Gryo_Value(final double gyroValue) {
-		final double gyroAngle = gyroValue % 360;
-		return (gyroAngle < -180 ? gyroAngle + 360 : gyroAngle > 180 ? gyroAngle - 360 : gyroAngle);
-	}
-
-	/**
-	 * Returns the shortest gyro displacement in the best direction from the
-	 * currentValue to the desiredValue. This function will normalize, scale the
-	 * values from -180.0 degrees to 180.0 degrees, both the currentValue and the
-	 * desiredValue and will return the displacement as a normalized value as well.
-	 * 
-	 * @param currentValue The current gyro value in degrees.
-	 * @param desiredValue The desired gyro value in dgerees.
-	 * @return The shortest gyro displacement representing the best direction to
-	 *         reach the desired value with the least amount of turning.
-	 */
-	public static double Get_Gyro_Displacement(final double currentValue, final double desiredValue) {
-		final double displacement = Normalize_Gryo_Value(desiredValue) - Normalize_Gryo_Value(currentValue);
-		return (displacement < -180 ? displacement + 360 : displacement > 180 ? displacement - 360 : displacement);
-	}
-
 }

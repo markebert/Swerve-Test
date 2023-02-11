@@ -12,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import static com.markwebert.javafxapp.HelperFunctions.Deadzone_With_Map;
+import static com.markwebert.javafxapp.HelperFunctions.Normalize_Gryo_Value;
+
 /**
  *
  * @author Mark Ebert
@@ -20,6 +23,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
 	private Swerve swerve;
+	private UIController uiController;;
 
 	/**
 	 * Starting point of the application
@@ -61,7 +65,8 @@ public class App extends Application {
 			}
 		});
 
-		swerve = new Swerve(loader.getController());
+		uiController = loader.getController();
+		swerve = new Swerve(uiController);
 
 		// System.out.println(XInputDevice14.isAvailable());
 		final XInputDevice14 device = XInputDevice14.getDeviceFor(0); // or devices[0]
@@ -75,8 +80,26 @@ public class App extends Application {
 						XInputButtons buttons = components.getButtons();
 						XInputAxes axes = components.getAxes();
 
-						swerve.drive(Deadzone_With_Map(.1, axes.lx), Deadzone_With_Map(.1, axes.ly),
-								Deadzone_With_Map(.1, axes.rx));
+						final double leftStickX = Deadzone_With_Map(.1, -axes.lx);
+						final double leftStickY = Deadzone_With_Map(.1, axes.ly);
+						final double rightStickX = Deadzone_With_Map(.1, axes.rx);
+
+						double leftStickAngle, leftStickMagnitude;
+						if (leftStickX != 0 || leftStickY != 0) {
+							leftStickAngle = Normalize_Gryo_Value(
+									Math.toDegrees(Math.atan2(leftStickY, leftStickX)) - 90);
+							leftStickMagnitude = Math.sqrt(Math.pow(leftStickY, 2) + Math.pow(leftStickX, 2));
+							if (leftStickMagnitude > 1.0) {
+								leftStickMagnitude = 1;
+							}
+						} else {
+							leftStickAngle = 0;
+							leftStickMagnitude = 0;
+						}
+
+						uiController.updateControls(leftStickX, leftStickY, rightStickX, leftStickAngle,
+								leftStickMagnitude);
+						swerve.drive(leftStickAngle, leftStickMagnitude, rightStickX);
 					}
 					Thread.sleep(20);
 				}
@@ -84,40 +107,6 @@ public class App extends Application {
 				// Do Nothing
 			}
 		}).start();
-
-	}
-
-	/**
-	 * This function returns a value adjusted for the inputed deadzone.
-	 * 
-	 * @param deadzoneRange The range that will be used when adjusting the inputed
-	 *                      value.
-	 * @param currentValue  The original unaltered value that should range from -1.0
-	 *                      to 1.0.
-	 * @return The value adjusted for the given deadzone range.
-	 */
-	public static double Deadzone(double deadzoneRange, final double currentValue) {
-		deadzoneRange = Math.abs(deadzoneRange);
-		return (currentValue <= -deadzoneRange || currentValue >= deadzoneRange ? currentValue : 0);
-	}
-
-	public static double Deadzone_With_Map(double deadzoneRange, final double currentValue) {
-		deadzoneRange = Math.abs(deadzoneRange);
-		if (currentValue <= -deadzoneRange || currentValue >= deadzoneRange) {
-			if (currentValue > 0) {
-				return Map(currentValue, deadzoneRange, 1.0, 0.0, 1.0);
-			}
-			return Map(currentValue, -1.0, -deadzoneRange, -1.0, 0.0);
-		}
-		return 0;
-	}
-
-	public static int Map(int x, int in_min, int in_max, int out_min, int out_max) {
-		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-	}
-
-	public static double Map(double x, double in_min, double in_max, double out_min, double out_max) {
-		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	}
 
 }
