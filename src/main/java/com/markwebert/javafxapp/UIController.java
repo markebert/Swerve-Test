@@ -121,36 +121,18 @@ public class UIController {
 		}
 	}
 
-	public void updateControls(final double leftStickX, final double leftStickY, final double rightStickX) {
+	public void updateControls(final double leftStickX, final double leftStickY, final double rightStickX,
+			final double leftStickAngle, final double leftStickMagnitude) {
 		Platform.runLater(() -> {
 			leftXText.setText(String.format("%.2f", leftStickX));
 			leftYText.setText(String.format("%.2f", leftStickY));
 			rightXText.setText(String.format("%.2f", rightStickX));
-
-			double leftStickAngle = (leftStickY == 0 && leftStickX == 0) ? 0
-					: Normalize_Gryo_Value(Math.toDegrees(Math.atan2(leftStickY, -leftStickX)) - 90);
 			leftAngleText.setText(String.format("%.2f", leftStickAngle));
-
-			double leftStickVelocity = (leftStickY == 0 && leftStickX == 0) ? 0
-					: Math.sqrt(Math.pow(leftStickY, 2) + Math.pow(leftStickX, 2));
-			leftVelocityText.setText(String.format("%.2f", leftStickVelocity));
-
-			double leftWheelVelocity = 0, rightWheelVelocity = 0;
-			if (rightStickX != 0) {
-				leftWheelVelocity = rightStickX;
-				rightWheelVelocity = -rightStickX;
-			} else if (leftStickY != 0 || leftStickX != 0) {
-				leftWheelVelocity = leftStickVelocity;
-				rightWheelVelocity = leftStickVelocity;
-			}
-			lfVelocityText.setText(String.format("%.2f", leftWheelVelocity));
-			lrVelocityText.setText(String.format("%.2f", leftWheelVelocity));
-			rfVelocityText.setText(String.format("%.2f", rightWheelVelocity));
-			rrVelocityText.setText(String.format("%.2f", rightWheelVelocity));
+			leftVelocityText.setText(String.format("%.2f", leftStickMagnitude));
 		});
 	}
 
-	public void updateWheels(final double leftFrontWheelRotation, final double leftRearWheelRotation,
+	public void updateWheelAngles(final double leftFrontWheelRotation, final double leftRearWheelRotation,
 			final double rightFrontWheelRotation, final double rightRearWheelRotation) {
 		Platform.runLater(() -> {
 			frontLeftWheel.setRotate(leftFrontWheelRotation);
@@ -162,6 +144,16 @@ public class UIController {
 			lrSlewText.setText(String.format("%.2f", leftRearWheelRotation));
 			rfSlewText.setText(String.format("%.2f", rightFrontWheelRotation));
 			rrSlewText.setText(String.format("%.2f", rightRearWheelRotation));
+		});
+	}
+
+	public void updateWheelMagnitudes(final double lfMagnitude, final double lrMagnitude, final double rfMagnitude,
+			final double rrMagnitude) {
+		Platform.runLater(() -> {
+			lfVelocityText.setText(String.format("%.2f", lfMagnitude));
+			lrVelocityText.setText(String.format("%.2f", lrMagnitude));
+			rfVelocityText.setText(String.format("%.2f", rfMagnitude));
+			rrVelocityText.setText(String.format("%.2f", rrMagnitude));
 		});
 	}
 
