@@ -43,7 +43,7 @@ public class Swerve {
             rfAngle = rfResultantVector[0];
             rrAngle = rrResultantVector[0];
 
-            // Find largest vector
+            // Find vector with the largest magnitude
             final double[] largestVector = findVectorWithLargestMagnitude(lfResultantVector, lrResultantVector,
                     rfResultantVector, rrResultantVector);
 
