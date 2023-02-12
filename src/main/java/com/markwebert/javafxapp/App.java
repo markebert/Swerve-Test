@@ -50,7 +50,7 @@ public class App extends Application {
 		Scene scene = new Scene((Parent) loader.load());
 
 		// Setup the primary stage
-		primaryStage.setTitle("JavaFX App");
+		primaryStage.setTitle("Swerve Test Viewer");
 		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/icon.png")));
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -68,26 +68,27 @@ public class App extends Application {
 		uiController = loader.getController();
 		swerve = new Swerve(uiController);
 
-		// System.out.println(XInputDevice14.isAvailable());
+		// Get the first plugged in controller
 		final XInputDevice14 device = XInputDevice14.getDeviceFor(0); // or devices[0]
+		// Start a new thread to fetch the data
 		new Thread(() -> {
 			try {
 				while (true) {
 					// Poll the device
 					if (device.poll()) {
-						// Retrieve the components
+						// Retrieve the components from the controller
 						XInputComponents components = device.getComponents();
 						XInputButtons buttons = components.getButtons();
 						XInputAxes axes = components.getAxes();
 
+						// Get the required values from the components
 						final double leftStickX = Deadzone_With_Map(.1, -axes.lx);
 						final double leftStickY = Deadzone_With_Map(.1, axes.ly);
 						final double rightStickX = Deadzone_With_Map(.1, axes.rx);
 
 						double leftStickAngle, leftStickMagnitude;
 						if (leftStickX != 0 || leftStickY != 0) {
-							leftStickAngle = Normalize_Gryo_Value(
-									Math.toDegrees(Math.atan2(leftStickY, leftStickX)) - 90);
+							leftStickAngle = Normalize_Gryo_Value(Math.toDegrees(Math.atan2(leftStickY, leftStickX)) - 90);
 							leftStickMagnitude = Math.sqrt(Math.pow(leftStickY, 2) + Math.pow(leftStickX, 2));
 							if (leftStickMagnitude > 1.0) {
 								leftStickMagnitude = 1;
@@ -97,10 +98,13 @@ public class App extends Application {
 							leftStickMagnitude = 0;
 						}
 
-						uiController.updateControls(leftStickX, leftStickY, rightStickX, leftStickAngle,
-								leftStickMagnitude);
+						// Update the controls text of the UI
+						uiController.updateControls(leftStickX, leftStickY, rightStickX, leftStickAngle, leftStickMagnitude);
+
+						// Perform the simulation
 						swerve.drive(leftStickAngle, leftStickMagnitude, rightStickX);
 					}
+					// Sleep for 20ms
 					Thread.sleep(20);
 				}
 			} catch (Exception e) {

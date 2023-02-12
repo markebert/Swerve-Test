@@ -104,25 +104,25 @@
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LF Slew Angle:" />
-                  <Text fx:id="lfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="lfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LF Velocity:" />
-                  <Text fx:id="lfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="lfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LR Slew Angle:" />
-                  <Text fx:id="lrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="lrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LR Velocity:" />
-                  <Text fx:id="lrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="lrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
          </children>
@@ -137,25 +137,25 @@
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Slew Angle:" />
-                  <Text fx:id="rfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="rfSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RF Velocity:" />
-                  <Text fx:id="rfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="rfVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RR Slew Angle:" />
-                  <Text fx:id="rrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="rrSlewText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
             <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="RR Velocity:" />
-                  <Text fx:id="rrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="rrVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </HBox>
          </children>
@@ -169,19 +169,19 @@
                   <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick X:" />
-                        <Text fx:id="leftXText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="leftXText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Y:" />
-                        <Text fx:id="leftYText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="leftYText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Right Stick X:" />
-                        <Text fx:id="rightXText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="rightXText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
                   </HBox>
                </children>
@@ -194,13 +194,13 @@
                   <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Angle:" />
-                        <Text fx:id="leftAngleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="leftAngleText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left Stick Velocity:" />
-                        <Text fx:id="leftVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                        <Text fx:id="leftVelocityText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
                   </HBox>
                </children>

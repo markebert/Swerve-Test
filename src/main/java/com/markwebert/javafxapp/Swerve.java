@@ -21,7 +21,7 @@ public class Swerve {
         if (leftStickMagnitude != 0 || rightStickMagnitude != 0) {
             final double[] leftStickVector = new double[] { leftStickAngle, leftStickMagnitude };
 
-            // Left Front
+            // Perform the vector addition to get the resultant vectors
             final double[] lfResultantVector = addTwoVectors(leftStickVector, new double[] { 45, rightStickMagnitude });
             final double[] lrResultantVector = addTwoVectors(leftStickVector, new double[] { -45, rightStickMagnitude });
             final double[] rfResultantVector = addTwoVectors(leftStickVector, new double[] { 135, rightStickMagnitude });

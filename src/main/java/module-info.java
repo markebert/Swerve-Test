@@ -6,5 +6,6 @@ module com.markwebert.javafxapp {
 	requires jxinput;
 
 	opens com.markwebert.javafxapp to javafx.fxml;
+
 	exports com.markwebert.javafxapp;
 }

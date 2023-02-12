@@ -79,33 +79,23 @@ public class UIController {
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
 		assert closeButton != null : "fx:id=\"closeButton\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert frontLeftWheel != null
-				: "fx:id=\"frontLeftWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert frontRightWheel != null
-				: "fx:id=\"frontRightWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert leftAngleText != null
-				: "fx:id=\"leftAngleText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert leftVelocityText != null
-				: "fx:id=\"leftVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert frontLeftWheel != null : "fx:id=\"frontLeftWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert frontRightWheel != null : "fx:id=\"frontRightWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert leftAngleText != null : "fx:id=\"leftAngleText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert leftVelocityText != null : "fx:id=\"leftVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert leftXText != null : "fx:id=\"leftXText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert leftYText != null : "fx:id=\"leftYText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert lfSlewText != null : "fx:id=\"lfSlewText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert lfVelocityText != null
-				: "fx:id=\"lfVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert lfVelocityText != null : "fx:id=\"lfVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert lrSlewText != null : "fx:id=\"lrSlewText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert lrVelocityText != null
-				: "fx:id=\"lrVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert rearLeftWheel != null
-				: "fx:id=\"rearLeftWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert rearRightWheel != null
-				: "fx:id=\"rearRightWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert lrVelocityText != null : "fx:id=\"lrVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert rearLeftWheel != null : "fx:id=\"rearLeftWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert rearRightWheel != null : "fx:id=\"rearRightWheel\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert rfSlewText != null : "fx:id=\"rfSlewText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert rfVelocityText != null
-				: "fx:id=\"rfVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert rfVelocityText != null : "fx:id=\"rfVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert rightXText != null : "fx:id=\"rightXText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 		assert rrSlewText != null : "fx:id=\"rrSlewText\" was not injected: check your FXML file 'javafxapp.fxml'.";
-		assert rrVelocityText != null
-				: "fx:id=\"rrVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
+		assert rrVelocityText != null : "fx:id=\"rrVelocityText\" was not injected: check your FXML file 'javafxapp.fxml'.";
 
 	}
 
@@ -121,8 +111,8 @@ public class UIController {
 		}
 	}
 
-	public void updateControls(final double leftStickX, final double leftStickY, final double rightStickX,
-			final double leftStickAngle, final double leftStickMagnitude) {
+	public void updateControls(final double leftStickX, final double leftStickY, final double rightStickX, final double leftStickAngle,
+			final double leftStickMagnitude) {
 		Platform.runLater(() -> {
 			leftXText.setText(String.format("%.2f", leftStickX));
 			leftYText.setText(String.format("%.2f", leftStickY));
@@ -132,8 +122,8 @@ public class UIController {
 		});
 	}
 
-	public void updateWheelAngles(final double leftFrontWheelRotation, final double leftRearWheelRotation,
-			final double rightFrontWheelRotation, final double rightRearWheelRotation) {
+	public void updateWheelAngles(final double leftFrontWheelRotation, final double leftRearWheelRotation, final double rightFrontWheelRotation,
+			final double rightRearWheelRotation) {
 		Platform.runLater(() -> {
 			frontLeftWheel.setRotate(leftFrontWheelRotation);
 			rearLeftWheel.setRotate(leftRearWheelRotation);
@@ -147,8 +137,7 @@ public class UIController {
 		});
 	}
 
-	public void updateWheelMagnitudes(final double lfMagnitude, final double lrMagnitude, final double rfMagnitude,
-			final double rrMagnitude) {
+	public void updateWheelMagnitudes(final double lfMagnitude, final double lrMagnitude, final double rfMagnitude, final double rrMagnitude) {
 		Platform.runLater(() -> {
 			lfVelocityText.setText(String.format("%.2f", lfMagnitude));
 			lrVelocityText.setText(String.format("%.2f", lrMagnitude));
