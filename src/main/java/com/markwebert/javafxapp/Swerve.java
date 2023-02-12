@@ -19,23 +19,13 @@ public class Swerve {
     public void drive(final double leftStickAngle, final double leftStickMagnitude, final double rightStickMagnitude) {
         final double lfMagnitude, lrMagnitude, rfMagnitude, rrMagnitude;
         if (leftStickMagnitude != 0 || rightStickMagnitude != 0) {
-            final double[] vectorOne = new double[] { leftStickAngle, leftStickMagnitude };
+            final double[] leftStickVector = new double[] { leftStickAngle, leftStickMagnitude };
 
             // Left Front
-            final double[] lfVectorTwo = new double[] { 45, rightStickMagnitude };
-            final double[] lfResultantVector = addTwoVectors(vectorOne, lfVectorTwo);
-
-            // Left Rear
-            final double[] lrVectorTwo = new double[] { -45, rightStickMagnitude };
-            final double[] lrResultantVector = addTwoVectors(vectorOne, lrVectorTwo);
-
-            // Right Front
-            final double[] rfVectorTwo = new double[] { 135, rightStickMagnitude };
-            final double[] rfResultantVector = addTwoVectors(vectorOne, rfVectorTwo);
-
-            // Right Rear
-            final double[] rrVectorTwo = new double[] { -135, rightStickMagnitude };
-            final double[] rrResultantVector = addTwoVectors(vectorOne, rrVectorTwo);
+            final double[] lfResultantVector = addTwoVectors(leftStickVector, new double[] { 45, rightStickMagnitude });
+            final double[] lrResultantVector = addTwoVectors(leftStickVector, new double[] { -45, rightStickMagnitude });
+            final double[] rfResultantVector = addTwoVectors(leftStickVector, new double[] { 135, rightStickMagnitude });
+            final double[] rrResultantVector = addTwoVectors(leftStickVector, new double[] { -135, rightStickMagnitude });
 
             // Update the angles
             lfAngle = lfResultantVector[0];
@@ -44,8 +34,7 @@ public class Swerve {
             rrAngle = rrResultantVector[0];
 
             // Find vector with the largest magnitude
-            final double[] largestVector = findVectorWithLargestMagnitude(lfResultantVector, lrResultantVector,
-                    rfResultantVector, rrResultantVector);
+            final double[] largestVector = findVectorWithLargestMagnitude(lfResultantVector, lrResultantVector, rfResultantVector, rrResultantVector);
 
             // Scale the magnitudes if the largest vector exceeds 1.0
             if (largestVector[1] > 1.0) {
